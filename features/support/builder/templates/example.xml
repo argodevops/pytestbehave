@@ -1,0 +1,20 @@
+<?xml version=3D"1.0" encoding=3D"UTF-8"?>
+<MPD xmlns=3Dhttp://www.argo/XMLSchemas/MPD version=3D"3.0">
+   <MessageHeader>
+      <MessageId>0053</MessageId>
+      <WSMethodName>DoSomething</WSMethodName>
+      <MessageURN>0100050013000012078900</MessageURN>
+      <SessionRef/>
+      <Status/>
+      <CallReference/>
+      <OperatorOrganisationalUnit/>
+   </MessageHeader>
+   <MessageData>
+      <ResourceChange version=3D"1.0">
+         <ResourceTypeId>PE</ResourceTypeId>
+         <ResourceId>77226572</ResourceId>
+         <ActivityEvent>BOF</ActivityEvent>
+         <ActivityKey1>{{ ActKey1 }}</ActivityKey1>
+      </ResourceChange>
+   </MessageData>
+</MPD>v
