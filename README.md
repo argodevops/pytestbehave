@@ -1,24 +1,22 @@
-## **PyBehave Test Automation Framework**
+## **PyTestBehave Test Automation Framework**
 
-![GitHub actions workflow status](https://img.shields.io/github/actions/workflow/status/argodevops/pyBehave/main)
-![GitHub language count](https://img.shields.io/github/languages/count/argodevops/pyBehave)
-![PyPI - License](https://img.shields.io/pypi/l/pybehave)
-![PyPI - Version](https://img.shields.io/pypi/v/pyBehave)
-![GitHub Downloads](https://img.shields.io/github/downloads/argodevops/pybehave/total)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/pyBehave)
+![GitHub actions workflow status](https://img.shields.io/github/actions/workflow/status/argodevops/pyTestBehave/main)
+![GitHub language count](https://img.shields.io/github/languages/count/argodevops/pyTestBehave)
+![PyPI - License](https://img.shields.io/pypi/l/pytestbehave)
+![PyPI - Version](https://img.shields.io/pypi/v/pytestbehave)
+![GitHub Downloads](https://img.shields.io/github/downloads/argodevops/pytestbehave/total)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/pytestbehave)
 
 ```
-______     ______      _
-| ___ \    | ___ \    | |
-| |_/ /   _| |_/ / ___| |__   __ ___   _____
-|  __/ | | | ___ \/ _ \ '_ \ / _` \ \ / / _ \
-| |  | |_| | |_/ /  __/ | | | (_| |\ V /  __/
-\_|   \__, \____/ \___|_| |_|\__,_| \_/ \___|
-       __/ |
-      |___/
+ ____          _____             _    ____         _                         
+|  _ \  _   _ |_   _|  ___  ___ | |_ | __ )   ___ | |__    __ _ __   __  ___ 
+| |_) || | | |  | |   / _ \/ __|| __||  _ \  / _ \| '_ \  / _` |\ \ / / / _ \
+|  __/ | |_| |  | |  |  __/\__ \| |_ | |_) ||  __/| | | || (_| | \ V / |  __/
+|_|     \__, |  |_|   \___||___/ \__||____/  \___||_| |_| \__,_|  \_/   \___|
+        |___/                                                                
 ```
 
-**PyBehave** is a powerful test automation framework designed to provide a comprehensive solution for testing user interfaces and APIs. It leverages the power of `Behave` framework, `Python` programming language and `Selenium` `WebDriver` to allow the creation robust and maintainable automated tests.
+**PyTestBehave** is a powerful test automation framework designed to provide a comprehensive solution for testing user interfaces and APIs. It leverages the power of `Behave` framework, `Python` programming language and `Selenium` `WebDriver` to allow the creation robust and maintainable automated tests.
 
 ### Key Features
 1. **Behaviour-Driven Development (BDD) Support** - allows testers to write tests in a human-readable format using `Gherkin` syntax, making it easier to collaborate with stakeholders and ensure test coverage.

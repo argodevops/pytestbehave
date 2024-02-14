@@ -27,7 +27,7 @@ class Settings:
                 os.path.dirname(os.path.abspath(__file__)), "test_settings.json"
             )
 
-        Art = text2art("PyBehave")
+        Art = text2art("PyTestBehave")
         print(Art)
 
         logging.info("Settings file: %s", settings_file)
