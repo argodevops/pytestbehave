@@ -2,10 +2,10 @@
 
 ![GitHub actions workflow status](https://img.shields.io/github/actions/workflow/status/argodevops/pyTestBehave/main.yml)
 ![GitHub language count](https://img.shields.io/github/languages/count/argodevops/pyTestBehave)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pytestbehave)
 ![PyPI - License](https://img.shields.io/pypi/l/pytestbehave)
 ![PyPI - Version](https://img.shields.io/pypi/v/pytestbehave)
 ![GitHub Downloads](https://img.shields.io/github/downloads/argodevops/pytestbehave/total)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/pytestbehave)
 
 ```
  ____          _____             _    ____         _                         
@@ -64,9 +64,9 @@ The design is split into two sections - **Test Suite** and **Framework Layer**.
 
 ### Pre-requisites
 
-Install the required system dependencies. `sudo apt-get install requirements.system`
+Install the required system dependencies. `sudo apt-get install requirements.system`.
 
-Install the required Python module dependencies. `sudo pip install -r requirements.txt`
+Install the required Python module dependencies. `sudo pip install -r requirements.txt`.
 
 Install the latest stable version of the web drivers you wish to use in `drivers`.
 
@@ -92,7 +92,7 @@ There are also example tests for `database` connectivity and `API` requests.
 
 ### Logging Output
 
-When running tests each step is logged in a format to assist with understanding the execution and assist with any debugging. A sample output is shown below.
+When running tests each step is logged in a format to assist with understanding the execution and with debugging issues.
 
 ```
 Feature: Example Login # features/example/login.feature:4
