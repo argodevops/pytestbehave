@@ -104,8 +104,12 @@ class BasePage:
         sensitive=False,
     ):
         """Type in locator"""
-        logging.debug(
-            "Typing in locator %s text %s", locator.get_formatted_locator(), text
+        if sensitive:
+            logging.debug(
+                "Typing in locator %s text *****", locator.get_formatted_locator())    
+        else:
+            logging.debug(
+                "Typing in locator %s text %s", locator.get_formatted_locator(), text
         )
         self.assert_element_displayed_and_click(locator)
         self.element_action.type(

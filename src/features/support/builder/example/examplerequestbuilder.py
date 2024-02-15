@@ -16,7 +16,7 @@ class XMLMessageBuilder:
     def __init__(self, context):
         self.faker = Faker("en_GB")
         self.context = context
-        self.environment = Environment(loader=FileSystemLoader("templates/"))
+        self.environment = Environment(loader=FileSystemLoader("templates/"), autoescape=True)
 
     def header(self, auth_token):
         """builds request header for a message"""

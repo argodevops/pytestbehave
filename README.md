@@ -1,6 +1,6 @@
 ## **PyTestBehave Test Automation Framework**
 
-![GitHub actions workflow status](https://img.shields.io/github/actions/workflow/status/argodevops/pyTestBehave/main)
+![GitHub actions workflow status](https://img.shields.io/github/actions/workflow/status/argodevops/pyTestBehave/main.yml)
 ![GitHub language count](https://img.shields.io/github/languages/count/argodevops/pyTestBehave)
 ![PyPI - License](https://img.shields.io/pypi/l/pytestbehave)
 ![PyPI - Version](https://img.shields.io/pypi/v/pytestbehave)
