@@ -34,4 +34,5 @@ jobs:
         ruff .
     - name: Run example test
       run: |
+        cd src
         behave features/example/login.feature

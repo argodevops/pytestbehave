@@ -1,4 +1,5 @@
-reports/*
+**/reports/*
 **/__pycache__
-screenshots/*
+**/screenshots/*
 json.pretty.output
+dist/*
