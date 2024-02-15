@@ -42,6 +42,6 @@ six==1.16.0
 testresources==2.0.1
 toml==0.10.2
 typing-extensions==4.7.1
-urllib3==2.0.3
+urllib3==2.0.7
 wily==1.24.2
 xmltodict==0.13.0
