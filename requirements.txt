@@ -16,7 +16,7 @@ iniconfig==2.0.0
 Jinja2==3.1.2
 packaging==23.1
 panda==0.3.1
-paramiko==3.3.1
+paramiko==3.4.0
 parse==1.19.1
 parse-type==0.6.2
 pdfminer==20191125
