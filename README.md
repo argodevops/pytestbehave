@@ -1,11 +1,11 @@
 ## **PyTestBehave Test Automation Framework**
 
-![GitHub actions workflow status](https://img.shields.io/github/actions/workflow/status/argodevops/pyTestBehave/main.yml)
-![GitHub language count](https://img.shields.io/github/languages/count/argodevops/pyTestBehave)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pytestbehave)
-![PyPI - License](https://img.shields.io/pypi/l/pytestbehave)
-![PyPI - Version](https://img.shields.io/pypi/v/pytestbehave)
-![GitHub Downloads](https://img.shields.io/github/downloads/argodevops/pytestbehave/total)
+![GitHub actions workflow status](https://img.shields.io/github/actions/workflow/status/argodevops/pytest-behave/main.yml)
+![GitHub language count](https://img.shields.io/github/languages/count/argodevops/pytest-behave)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pytest-behave)
+![PyPI - License](https://img.shields.io/pypi/l/pytest-behave)
+![PyPI - Version](https://img.shields.io/pypi/v/pytest-behave)
+![GitHub Downloads](https://img.shields.io/github/downloads/argodevops/pytest-behave/total)
 
 ```
  ____          _____             _    ____         _                         
