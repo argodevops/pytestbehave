@@ -5,8 +5,7 @@ Step definitions for function apps API calls
 # pylint: skip-file
 
 from behave import step
-
-from features.support.actions.example.apiaction import TokenApiAction
+from support.facades.example.apiaction import TokenApiAction
 
 
 @step("I have a valid rest token")

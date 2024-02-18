@@ -3,7 +3,7 @@ Step definitions for example login to application
 """
 
 from behave import step
-from features.support.actions.example.loginaction import LoginAction
+from support.facades.example.loginaction import LoginAction
 
 
 @step('I have navigated to url "{url}"')

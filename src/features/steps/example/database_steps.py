@@ -4,10 +4,8 @@ Step definitions for database calls
 
 # pylint: skip-file
 
-
 from behave import step, then, when
-
-from features.support.actions.example.databaseaction import DatabaseAction
+from support.facades.example.databaseaction import DatabaseAction
 
 
 @step('I have successfully logged onto the "{dbname}" database as "{dbuser}" user')

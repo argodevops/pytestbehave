@@ -10,8 +10,7 @@ from datetime import datetime
 from behave.contrib.scenario_autoretry import patch_scenario_with_autoretry
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-
-from features.settings import settings
+from support.settings import settings
 from utils.testdatahelper import TestDataHelper
 
 PRIMARY_DEV_ENV = "dev"
