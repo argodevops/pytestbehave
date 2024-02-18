@@ -2,10 +2,10 @@
 
 ![GitHub actions workflow status](https://img.shields.io/github/actions/workflow/status/argodevops/pytest-behave/main.yml)
 ![GitHub language count](https://img.shields.io/github/languages/count/argodevops/pytest-behave)
+![GitHub Downloads](https://img.shields.io/github/downloads/argodevops/pytest-behave/total)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pytest-behave)
 ![PyPI - License](https://img.shields.io/pypi/l/pytest-behave)
 ![PyPI - Version](https://img.shields.io/pypi/v/pytest-behave)
-![GitHub Downloads](https://img.shields.io/github/downloads/argodevops/pytest-behave/total)
 
 ```
  ____          _____             _    ____         _                         
@@ -18,7 +18,7 @@
 
 **PyTestBehave** is a powerful test automation framework designed to provide a comprehensive solution for testing user interfaces and APIs. It leverages the power of `Behave` framework, `Python` programming language and `Selenium` `WebDriver` to allow the creation robust and maintainable automated tests.
 
-### Key Features
+### Highlights
 1. **Behaviour-Driven Development (BDD) Support** - allows testers to write tests in a human-readable format using `Gherkin` syntax, making it easier to collaborate with stakeholders and ensure test coverage.
 
 2. **UI and API Testing** - supports testing both UIs and APIs, using `Selenium` `WebDriver` to interact with web browsers and `Python` `requests` library to send API requests and validate responses.
