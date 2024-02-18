@@ -8,15 +8,15 @@
 ![GitHub Downloads](https://img.shields.io/github/downloads/argodevops/pytest-behave/total)
 
 ```
- ____          _____             _    ____         _                         
-|  _ \  _   _ |_   _|  ___  ___ | |_ | __ )   ___ | |__    __ _ __   __  ___ 
-| |_) || | | |  | |   / _ \/ __|| __||  _ \  / _ \| '_ \  / _` |\ \ / / / _ \
-|  __/ | |_| |  | |  |  __/\__ \| |_ | |_) ||  __/| | | || (_| | \ V / |  __/
-|_|     \__, |  |_|   \___||___/ \__||____/  \___||_| |_| \__,_|  \_/   \___|
-        |___/                                                                
+ ____          ____         _                                 ____         _               _                       
+|  _ \  _   _ | __ )   ___ | |__    __ _ __   __  ___        / ___|   ___ | |  ___  _ __  (_) _   _  _ __ ___   
+| |_) || | | ||  _ \  / _ \| '_ \  / _` |\ \ / / / _ \ _____ \___ \  / _ \| | / _ \| '_ \ | || | | || '_ ` _ \  
+|  __/ | |_| || |_) ||  __/| | | || (_| | \ V / |  __/|_____| ___) ||  __/| ||  __/| | | || || |_| || | | | | |
+|_|     \__, ||____/  \___||_| |_| \__,_|  \_/   \___|       |____/  \___||_| \___||_| |_||_| \__,_||_| |_| |_|
+        |___/                                                                                                                                                                                                                 
 ```
 
-**PyTestBehave** is a powerful test automation framework designed to provide a comprehensive solution for testing user interfaces and APIs. It leverages the power of `Behave` framework, `Python` programming language and `Selenium` `WebDriver` to allow the creation robust and maintainable automated tests.
+**PyBehave-Selenium** is a powerful test automation framework designed to provide a comprehensive solution for testing user interfaces and APIs. It leverages the power of `Behave` framework, `Python` programming language and `Selenium` `WebDriver` to allow the creation robust and maintainable automated tests.
 
 ### Key Features
 1. **Behaviour-Driven Development (BDD) Support** - allows testers to write tests in a human-readable format using `Gherkin` syntax, making it easier to collaborate with stakeholders and ensure test coverage.
@@ -48,17 +48,17 @@ The design is split into two sections - **Test Suite** and **Framework Layer**.
 |-----------|-------------|
 | **features** | The `Gherkin` style feature files for defining BDD tests |
 | **features/steps** | The step definitions backing the `Gherkin` tests |
-| **features/support/actions** | Test logic actions potentially interacting across one or more pages (Facade) |
-| **features/support/pageactions** | The specific page actions, inheriting common actions from the `BasePage` |
-| **features/support/core** | The core `ElementAction` which performs all the lower level selenium functionality |
-| **features/support/locators** | Locator descriptors and types used for identifying web elements |
-| **features/support/builder** | The templating builders to create supporting test data |
+| **features/environment.py** | Default test environment, can be overridden and customised |
+| **support/facades** | Test logic facade actions potentially interacting across one or more pages |
+| **support/pageactions** | The specific page actions, inheriting common actions from the `BasePage` |
+| **support/core** | The core `ElementAction` which performs all the lower level selenium functionality |
+| **support/locators** | Locator descriptors and types used for identifying web elements |
+| **support/builder** | The templating builders to create supporting test data |
+| **support/test_settings.json** | Default test settings, can be overridden and customised |
 | **drivers** | The web drivers for supported browsers |
 | **reports** | The json files generated with Allure reports |
 | **screenshots** | The screenshots taken from failed tests |
 | **requirements.txt** | File containing all the Python package dependencies |
-| **test_settings.json** | Default test settings, can be overridden and customised |
-| **environment.py** | Default test environment, can be overridden and customised |
 
 ## **Running the Tests**
 
