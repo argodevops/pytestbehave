@@ -1,4 +1,4 @@
-## **PyTestBehave Test Automation Framework**
+## **PyBehave Selenium Test Automation Framework**
 
 ![GitHub actions workflow status](https://img.shields.io/github/actions/workflow/status/argodevops/pytest-behave/main.yml)
 ![GitHub language count](https://img.shields.io/github/languages/count/argodevops/pytest-behave)
@@ -8,15 +8,15 @@
 ![PyPI - Version](https://img.shields.io/pypi/v/pytest-behave)
 
 ```
- ____          ____         _                                 ____         _               _                       
-|  _ \  _   _ | __ )   ___ | |__    __ _ __   __  ___        / ___|   ___ | |  ___  _ __  (_) _   _  _ __ ___   
-| |_) || | | ||  _ \  / _ \| '_ \  / _` |\ \ / / / _ \ _____ \___ \  / _ \| | / _ \| '_ \ | || | | || '_ ` _ \  
+ ____          ____         _                                 ____         _               _       
+|  _ \  _   _ | __ )   ___ | |__    __ _ __   __  ___        / ___|   ___ | |  ___  _ __  (_) _   _  _ __ ___  
+| |_) || | | ||  _ \  / _ \| '_ \  / _` |\ \ / / / _ \ _____ \___ \  / _ \| | / _ \| '_ \ | || | | || '_ ` _ \ 
 |  __/ | |_| || |_) ||  __/| | | || (_| | \ V / |  __/|_____| ___) ||  __/| ||  __/| | | || || |_| || | | | | |
 |_|     \__, ||____/  \___||_| |_| \__,_|  \_/   \___|       |____/  \___||_| \___||_| |_||_| \__,_||_| |_| |_|
-        |___/                                                                                                                                                                                                                 
+        |___/ 
 ```
 
-**PyBehave-Selenium** is a powerful test automation framework designed to provide a comprehensive solution for testing user interfaces and APIs. It leverages the power of `Behave` framework, `Python` programming language and `Selenium` `WebDriver` to allow the creation robust and maintainable automated tests.
+**PyBehave-Selenium-Test-Framework** is a powerful test automation framework designed to provide a comprehensive solution for testing user interfaces and APIs. It leverages the power of `Behave` framework, `Python` programming language and `Selenium` `WebDriver` to allow the creation robust and maintainable automated tests.
 
 ### Highlights
 1. **Behaviour-Driven Development (BDD) Support** - allows testers to write tests in a human-readable format using `Gherkin` syntax, making it easier to collaborate with stakeholders and ensure test coverage.
