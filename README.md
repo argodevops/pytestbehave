@@ -1,11 +1,11 @@
 ## **PyBehave Selenium Test Automation Framework**
 
-![GitHub actions workflow status](https://img.shields.io/github/actions/workflow/status/argodevops/pytest-behave/main.yml)
-![GitHub language count](https://img.shields.io/github/languages/count/argodevops/pytest-behave)
-![GitHub Downloads](https://img.shields.io/github/downloads/argodevops/pytest-behave/total)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pytest-behave)
-![PyPI - License](https://img.shields.io/pypi/l/pytest-behave)
-![PyPI - Version](https://img.shields.io/pypi/v/pytest-behave)
+![GitHub actions workflow status](https://img.shields.io/github/actions/workflow/status/argodevops/pybehave-selenium-test-framework/main.yml)
+![GitHub language count](https://img.shields.io/github/languages/count/argodevops/pybehave-selenium-test-framework)
+![GitHub Downloads](https://img.shields.io/github/downloads/argodevops/pybehave-selenium-test-framework/total)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pybehave-selenium-test-framework)
+![PyPI - License](https://img.shields.io/pypi/l/pybehave-selenium-test-framework)
+![PyPI - Version](https://img.shields.io/pypi/v/pybehave-selenium-test-framework)
 
 ```
  ____          ____         _                                 ____         _               _       
