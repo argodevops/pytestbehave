@@ -8,7 +8,7 @@ azure-keyvault==4.2.0
 azure-keyvault-secrets==4.7.0
 behave==1.2.6
 behavex==2.0.1
-black==23.7.0
+black==24.3.0
 ddt==1.6.0
 elementpath==4.1.4
 Faker==19.1.0
