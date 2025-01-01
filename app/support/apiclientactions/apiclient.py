@@ -31,13 +31,9 @@ class ApiClient:
         key = token["api_key"]
 
         params = {"code": key}
-        response = requests.get(
-            url, params=params, verify=False, timeout=int(settings.wait_time)
-        )
+        response = requests.get(url, params=params, verify=False, timeout=int(settings.wait_time))
         if response.status_code != 200:
-            logging.warning(
-                "Request {url} returned response code: {response.status_code}"
-            )
+            logging.warning("Request {url} returned response code: {response.status_code}")
         return response.text
 
     def call_rest_api(self, url):
@@ -54,9 +50,7 @@ class ApiClient:
         Returns an authorization token dictionary
         for making calls to Event Hubs REST API.
         """
-        uri = urllib.parse.quote_plus(
-            "https://{}.servicebus.windows.net/{}".format(sb_name, eh_name)
-        )
+        uri = urllib.parse.quote_plus("https://{}.servicebus.windows.net/{}".format(sb_name, eh_name))
         sas = sas_value.encode("utf-8")
         expiry = str(int(time.time() + 10000))
         string_to_sign = (uri + "\n" + expiry).encode("utf-8")
@@ -65,7 +59,5 @@ class ApiClient:
         return {
             "sb_name": sb_name,
             "eh_name": eh_name,
-            "token": "SharedAccessSignature sr={}&sig={}&se={}&skn={}".format(
-                uri, signature, expiry, sas_name
-            ),
+            "token": "SharedAccessSignature sr={}&sig={}&se={}&skn={}".format(uri, signature, expiry, sas_name),
         }

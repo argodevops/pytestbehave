@@ -41,16 +41,12 @@ class TokenApiAction:
 
     def post_request_with_access_token(self):
         """post a request using an access token"""
-        self.context.oauth2_token = self.api_client.call_start_session_rest_api(
-            self.context.access_token
-        )
+        self.context.oauth2_token = self.api_client.call_start_session_rest_api(self.context.access_token)
 
     def verify_oauth2_token(self):
         """verify an OAuth2 token was generated"""
         logging.info("OAuth2.0 token: {self.outh2_token}")
-        Assert.assert_none(
-            self.context.oauth2_token, "OAuth2.0 token was not generated"
-        )
+        Assert.assert_none(self.context.oauth2_token, "OAuth2.0 token was not generated")
 
     def trigger_function_app(self, function_app_name):
         """trigger function app"""

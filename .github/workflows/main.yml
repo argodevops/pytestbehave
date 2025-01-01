@@ -30,8 +30,8 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Run linters
       run: |
-        black .
-        ruff .
+        ruff linter
+        ruff format
     - name: Run example test
       run: |
         cd app

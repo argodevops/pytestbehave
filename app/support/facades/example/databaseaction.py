@@ -23,9 +23,7 @@ class DatabaseAction:
         username = details["username"]
         password = details["password"]
         database = {}
-        logging.info(
-            "Login to %s:%s database with username %s", server, database_name, username
-        )
+        logging.info("Login to %s:%s database with username %s", server, database_name, username)
 
         # ENCRYPT defaults to yes starting in ODBC Driver 18.
         # Good to always specify ENCRYPT=yes on the client side to avoid MITM attacks.

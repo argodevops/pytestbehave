@@ -15,11 +15,7 @@ class Locator(Enum):
 
     def get_locator(self, replacement=None):
         """returns the locator string, optional replacement"""
-        return (
-            self.locator
-            if replacement is None
-            else self.locator.replace("$value", str(replacement))
-        )
+        return self.locator if replacement is None else self.locator.replace("$value", str(replacement))
 
     def get_formatted_locator(self, replacement=None):
         """Returns a pre-formatted locator string"""

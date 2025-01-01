@@ -15,6 +15,4 @@ class KeyvaultReader:
             credential = AzureCliCredential()
             return SecretClient(vault_url=kv_uri, credential=credential)
         except Exception as ex:
-            Assert.assert_fail(
-                f"Unable to resolve the KeyVault url - '{kv_uri}' : {ex}"
-            )
+            Assert.assert_fail(f"Unable to resolve the KeyVault url - '{kv_uri}' : {ex}")

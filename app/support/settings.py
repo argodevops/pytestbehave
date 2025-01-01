@@ -23,9 +23,7 @@ class Settings:
 
         settings_file = os.environ.get("SETTINGS_FILE_PATH")
         if not settings_file:
-            settings_file = os.path.join(
-                os.path.dirname(os.path.abspath(__file__)), "test_settings.json"
-            )
+            settings_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "test_settings.json")
 
         Art = text2art("PyBehave-Selenium-Test-Framework")
         print(Art)
@@ -38,9 +36,7 @@ class Settings:
         self.browser = setting.get("browser", "chrome")
         self.browser_version = setting.get("browser_version", "119.0")
         self.browser_platform = setting.get("browser_platform", "linux")
-        self.driver_executable_path = setting.get(
-            "driver_executable_path", "drivers/chromedriver"
-        )
+        self.driver_executable_path = setting.get("driver_executable_path", "drivers/chromedriver")
         self.driver_timeout = int(setting.get("driver_timeout", "5"))
         self.wait_time = setting.get("wait_time", "30")
         self.autoretry_attempts = setting.get("autoretry_attempts", "1")
@@ -52,27 +48,19 @@ class Settings:
 
     def get_env_config(self, test_env):
         """get environment config file"""
-        logging.info(
-            "Use KeyVault test config" if self.is_kv_config else "Use local test config"
-        )
+        logging.info("Use KeyVault test config" if self.is_kv_config else "Use local test config")
         if self.is_kv_config:
             config = os.environ.get("CONFIG")
             if not config:
-                logging.info(
-                    "Getting config from keyvault for %s environment", test_env
-                )
-                kv_client = KeyvaultReader().get_keyvault_client(
-                    "https://mccukspipeline.vault.azure.net/"
-                )
+                logging.info("Getting config from keyvault for %s environment", test_env)
+                kv_client = KeyvaultReader().get_keyvault_client("https://mccukspipeline.vault.azure.net/")
                 keys_list = [key.name for key in kv_client.list_properties_of_secrets()]
 
                 if test_env.lower() in keys_list:
                     logging.info("Environment %s is recognised", test_env)
                     config = kv_client.get_secret(test_env.lower()).value
                 else:
-                    Assert.assert_fail(
-                        f"No matching config found for {test_env} environment"
-                    )
+                    Assert.assert_fail(f"No matching config found for {test_env} environment")
             else:
                 logging.info("Reading config from CONFIG env variable")
             return config

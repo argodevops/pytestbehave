@@ -24,9 +24,7 @@ class TestDataHelper:
             os.mkdir(self.context.temp_folder_path)
             logging.info("Created temporary folder %s", self.context.temp_folder_path)
         else:
-            logging.info(
-                "Temporary folder already exists: %s", self.context.temp_folder_path
-            )
+            logging.info("Temporary folder already exists: %s", self.context.temp_folder_path)
 
     def get_environment(self):
         """return the environment"""

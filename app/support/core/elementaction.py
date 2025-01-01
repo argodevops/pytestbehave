@@ -73,9 +73,7 @@ class ElementAction:
 
             try:
                 WebDriverWait(self.context.driver, element_timeout).until(
-                    ec.visibility_of_element_located(
-                        (getattr(By, strategy), actual_locator)
-                    )
+                    ec.visibility_of_element_located((getattr(By, strategy), actual_locator))
                 )
             except (TimeoutException, StaleElementReferenceException):
                 logging.debug(
@@ -86,14 +84,10 @@ class ElementAction:
                 )
 
             if is_list_of_elements:
-                return self.context.driver.find_elements(
-                    getattr(By, strategy), actual_locator
-                )
+                return self.context.driver.find_elements(getattr(By, strategy), actual_locator)
 
             try:
-                element = self.context.driver.find_element(
-                    getattr(By, strategy), actual_locator
-                )
+                element = self.context.driver.find_element(getattr(By, strategy), actual_locator)
                 return element
             except TypeError:
                 return False
@@ -119,9 +113,7 @@ class ElementAction:
                 + "'}"
             ) from ex
 
-    def is_element_present(
-        self, locator, replacement=None, timeout=None, retry_refresh_browser=False
-    ):
+    def is_element_present(self, locator, replacement=None, timeout=None, retry_refresh_browser=False):
         """Verify if element is present on page
         :param locator: element locator
         :param replacement: if locator contains dynamic part, i.e. '$value',
@@ -141,16 +133,12 @@ class ElementAction:
     def scroll_down_javascript(self, locator, pixel=0):
         """Scrolls down javascript element"""
         try:
-            self.execute_java_script(
-                f"document.querySelector('{locator}').scrollTop={pixel}"
-            )
+            self.execute_java_script(f"document.querySelector('{locator}').scrollTop={pixel}")
             logging.info("Scrolling on element '%s' using JavaScript", locator)
         except Exception:
             Assert.assert_fail(f"Unable to scroll on element with locator {locator}")
 
-    def is_element_displayed(
-        self, locator, replacement=None, timeout=None, retry_refresh_browser=False
-    ):
+    def is_element_displayed(self, locator, replacement=None, timeout=None, retry_refresh_browser=False):
         """Verify if element is present on page
         :param locator: element locator
         :param replacement: if locator contains dynamic part, i.e. '$value',
@@ -165,9 +153,7 @@ class ElementAction:
             if not self.fetch_element(locator, False, timeout, retry_refresh_browser):
                 logging.info("Unable to find element '%s'", locator)
                 return False
-            return self.fetch_element(
-                locator, False, timeout, retry_refresh_browser
-            ).is_displayed()
+            return self.fetch_element(locator, False, timeout, retry_refresh_browser).is_displayed()
         except Exception:
             return False
 
@@ -191,13 +177,9 @@ class ElementAction:
                 strategy = locator.split(",")[0].strip()
                 actual_locator = locator.replace(strategy + ",", "")
 
-                logging.info(
-                    "Waiting for text '%s' to be present in '%s'", text, locator
-                )
+                logging.info("Waiting for text '%s' to be present in '%s'", text, locator)
                 WebDriverWait(self.context.driver, timeout).until(
-                    ec.text_to_be_present_in_element(
-                        (getattr(By, strategy), actual_locator), text
-                    )
+                    ec.text_to_be_present_in_element((getattr(By, strategy), actual_locator), text)
                 )
                 logging.info("Found text '%s' present in '%s'", text, locator)
                 return True
@@ -218,9 +200,7 @@ class ElementAction:
         logging.info("Failed to find text '%s' present in '%s'", text, locator)
         return False
 
-    def is_element_checked(
-        self, locator, replacement=None, timeout=None, retry_refresh_browser=False
-    ):
+    def is_element_checked(self, locator, replacement=None, timeout=None, retry_refresh_browser=False):
         """Verify is element is checked
         :param locator: element locator
         :param replacement: if locator contains dynamic part, i.e. '$value',
@@ -233,9 +213,7 @@ class ElementAction:
             locator = locator.replace("$value", replacement)
 
         try:
-            is_element_checked = self.fetch_element(
-                locator, False, timeout, retry_refresh_browser
-            ).is_selected()
+            is_element_checked = self.fetch_element(locator, False, timeout, retry_refresh_browser).is_selected()
             logging.info(
                 "Checked status for element '%s' is '%s'",
                 locator,
@@ -261,9 +239,7 @@ class ElementAction:
             actual_locator = locator.replace(strategy + ",", "").strip()
             timeout = int(settings.wait_time)
 
-            logging.info(
-                "Checking element '%s' (%s) is clickable", actual_locator, strategy
-            )
+            logging.info("Checking element '%s' (%s) is clickable", actual_locator, strategy)
             WebDriverWait(self.context.driver, timeout).until(
                 ec.element_to_be_clickable((getattr(By, strategy), actual_locator))
             )
@@ -314,9 +290,7 @@ class ElementAction:
             if timeout is None:
                 timeout = int(settings.wait_time)
 
-            logging.info(
-                "Checking element '%s' (%s) is clickable", actual_locator, strategy
-            )
+            logging.info("Checking element '%s' (%s) is clickable", actual_locator, strategy)
             WebDriverWait(self.context.driver, timeout).until(
                 ec.element_to_be_clickable((getattr(By, strategy), actual_locator))
             )
@@ -345,32 +319,24 @@ class ElementAction:
                     self.execute_java_script("arguments[0].click();", element)
                     logging.info("Clicked on element '%s' using JavaScript", locator)
                 except Exception as ex1:
-                    logging.warning(
-                        "Unable to click on element '%s' using JavaScript", locator
-                    )
+                    logging.warning("Unable to click on element '%s' using JavaScript", locator)
                     logging.debug(ex1)
 
                     try:
-                        logging.info(
-                            "Clicking on element '%s' using ActionChains", locator
-                        )
+                        logging.info("Clicking on element '%s' using ActionChains", locator)
                         element = self.fetch_element(locator)
                         actions = ActionChains(self.context.driver)
                         actions.move_to_element(element)
                         actions.click(element)
                         actions.perform()
-                        logging.info(
-                            "Clicked on element '%s' using ActionChains", locator
-                        )
+                        logging.info("Clicked on element '%s' using ActionChains", locator)
                     except Exception as ex2:
                         logging.warning(
                             "Unable to click on element '%s' using ActionChains",
                             locator,
                         )
                         logging.debug(ex2)
-                        Assert.assert_fail(
-                            "Unable to click on element '" + locator + "'"
-                        )
+                        Assert.assert_fail("Unable to click on element '" + locator + "'")
         # Adding a small delay after a click increases test reliability
         sleep(delay)
 
@@ -394,14 +360,10 @@ class ElementAction:
             if sensitive:
                 logging.info("Typed text ***** on element %s", locator, exc_info=True)
             else:
-                logging.info(
-                    "Typed text %s on element %s", text, locator, exc_info=True
-                )
+                logging.info("Typed text %s on element %s", text, locator, exc_info=True)
         except Exception:
             logging.error("Unable to type text %s on element %s.", text, locator)
-            Assert.assert_fail(
-                "Unable to type text '" + text + "' on element '" + locator + "'"
-            )
+            Assert.assert_fail("Unable to type text '" + text + "' on element '" + locator + "'")
 
     def type_using_actionschains(self, locator, text, delay: float = 0.5):
         """Type text in locator
@@ -433,9 +395,7 @@ class ElementAction:
                 locator,
                 exc_info=True,
             )
-            Assert.assert_fail(
-                "Unable to type text '" + text + "' on element '" + locator + "'"
-            )
+            Assert.assert_fail("Unable to type text '" + text + "' on element '" + locator + "'")
 
     def user_tab_on_element(self, locator=None, delay=0.5, replacement=None):
         """user performs tab keystroke
@@ -738,9 +698,7 @@ class ElementAction:
             select = Select(self.fetch_element(locator))
             select.select_by_visible_text(option_text)
 
-            logging.info(
-                "Selected element + %s+ by visible text + %s+ ", locator, option_text
-            )
+            logging.info("Selected element + %s+ by visible text + %s+ ", locator, option_text)
         except Exception:
             logging.error(
                 "Unable to select option + %s +",
@@ -759,16 +717,12 @@ class ElementAction:
             self.context.driver.switch_to.frame(frame_number)
             logging.info("Successfully switched frame")
         except Exception:
-            logging.info(
-                "Frame not loaded yet! Waiting for another 10 seconds for frame to load..."
-            )
+            logging.info("Frame not loaded yet! Waiting for another 10 seconds for frame to load...")
             sleep(int(settings.wait_time))
 
             try:
                 self.context.driver.switch_to.frame(frame_number)
-                logging.info(
-                    "Successfully switched to frame numbered + %s+ ", str(frame_number)
-                )
+                logging.info("Successfully switched to frame numbered + %s+ ", str(frame_number))
             except Exception:
                 logging.error(
                     "Unable to locate frame numbered + %s+ ",
@@ -776,9 +730,7 @@ class ElementAction:
                     exc_info=True,
                 )
                 if assert_it:
-                    Assert.assert_fail(
-                        "Unable to locate frame numbered '" + str(frame_number) + "' "
-                    )
+                    Assert.assert_fail("Unable to locate frame numbered '" + str(frame_number) + "' ")
 
     def switch_to_default_content(self, assert_it=True, delay=0.5):
         """Switch to parent window
@@ -789,15 +741,11 @@ class ElementAction:
             self.context.driver.switch_to.default_content()
             logging.info("Successfully switched to default frame")
         except Exception as ex:
-            logging.error(
-                "Unable to switch to default content! Error: %s", ex, exc_info=True
-            )
+            logging.error("Unable to switch to default content! Error: %s", ex, exc_info=True)
             if assert_it:
                 Assert.assert_fail("Unable to switch to default content!")
 
-    def switch_to_new_window(
-        self, count=0, expected_window_url=None, validate_url=False, delay=0.5
-    ):
+    def switch_to_new_window(self, count=0, expected_window_url=None, validate_url=False, delay=0.5):
         """switch to the new window"""
         sleep(delay)
         tabs = self.context.driver.window_handles
@@ -809,9 +757,7 @@ class ElementAction:
         else:
             for tab in tabs:
                 self.context.driver.switch_to.window(tab)
-                logging.info(
-                    "Switching to tab URL: %s", self.context.driver.current_url
-                )
+                logging.info("Switching to tab URL: %s", self.context.driver.current_url)
                 opened_urls.append(self.context.driver.current_url)
             return opened_urls
 
@@ -846,9 +792,7 @@ class ElementAction:
         logging.info("Length of Driver = %s ", driver_len)
         if driver_len > 1:
             for i in range(driver_len - 1, 0, -1):
-                self.context.driver.switch_to.window(
-                    self.context.driver.window_handles[i]
-                )
+                self.context.driver.switch_to.window(self.context.driver.window_handles[i])
                 self.context.driver.close()
                 print("Closed Tab No. ", i)
             self.context.driver.switch_to.window(self.context.driver.window_handles[0])
@@ -879,9 +823,7 @@ class ElementAction:
                 locator,
                 exc_info=True,
             )
-            Assert.assert_fail(
-                "Unable to press key '" + key + "' on element '" + locator + "' "
-            )
+            Assert.assert_fail("Unable to press key '" + key + "' on element '" + locator + "' ")
 
     def input_attachment_1(self, locator, filename):
         """Add attachment"""
@@ -977,9 +919,7 @@ class ElementAction:
     def extract_text_by_page(self, pdf_path):
         """extract text by page"""
         with open(pdf_path, "rb") as file_handle:
-            for page in PDFPage.get_pages(
-                file_handle, caching=True, check_extractable=True
-            ):
+            for page in PDFPage.get_pages(file_handle, caching=True, check_extractable=True):
                 resource_manager = PDFResourceManager()
                 fake_file_handle = io.StringIO()
 

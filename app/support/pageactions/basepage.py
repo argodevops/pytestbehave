@@ -36,27 +36,21 @@ class BasePage:
             delay=delay,
         )
 
-    def element_present_and_click(
-        self, locator, retry_refresh_browser=False, delay=0.5, timeout=None
-    ):
+    def element_present_and_click(self, locator, retry_refresh_browser=False, delay=0.5, timeout=None):
         """Checks if element is present before clicking"""
         if self.element_action.is_element_present(
             locator, retry_refresh_browser=retry_refresh_browser, timeout=timeout
         ):
             self.element_action.click(locator, delay=delay)
 
-    def element_displayed_and_click(
-        self, locator, retry_refresh_browser=False, delay=0.5, timeout=None
-    ):
+    def element_displayed_and_click(self, locator, retry_refresh_browser=False, delay=0.5, timeout=None):
         """Checks if element is displayed then clicks element"""
         if self.element_action.is_element_displayed(
             locator, retry_refresh_browser=retry_refresh_browser, timeout=timeout
         ):
             if not self.element_action.is_element_clickable(locator):
                 self.element_action.refresh_browser()
-            self.element_action.click(
-                locator, delay=delay, click_using_java_script=True
-            )
+            self.element_action.click(locator, delay=delay, click_using_java_script=True)
         else:
             logging.warning("Element is not displayed '%s'", locator)
 
@@ -105,26 +99,16 @@ class BasePage:
     ):
         """Type in locator"""
         if sensitive:
-            logging.debug(
-                "Typing in locator %s text *****", locator.get_formatted_locator()
-            )
+            logging.debug("Typing in locator %s text *****", locator.get_formatted_locator())
         else:
-            logging.debug(
-                "Typing in locator %s text %s", locator.get_formatted_locator(), text
-            )
+            logging.debug("Typing in locator %s text %s", locator.get_formatted_locator(), text)
         self.assert_element_displayed_and_click(locator)
-        self.element_action.type(
-            locator.get_formatted_locator(), text=text, delay=delay, sensitive=sensitive
-        )
+        self.element_action.type(locator.get_formatted_locator(), text=text, delay=delay, sensitive=sensitive)
 
     def type_using_action_chains(self, locator: Locator, text, delay: float = 0.5):
         """Type into locator using action chains"""
-        logging.debug(
-            "Typing using action chains for locator %s", locator.get_formatted_locator()
-        )
-        self.element_action.type_using_actionschains(
-            locator.get_formatted_locator(), text=text, delay=delay
-        )
+        logging.debug("Typing using action chains for locator %s", locator.get_formatted_locator())
+        self.element_action.type_using_actionschains(locator.get_formatted_locator(), text=text, delay=delay)
 
     def user_action_on_element(
         self,
@@ -142,9 +126,7 @@ class BasePage:
         )
         locatorString = locator.get_formatted_locator(replacement=replacement)
         if action == Action.TAB_ON:
-            self.element_action.user_tab_on_element(
-                locatorString, delay=delay, replacement=replacement
-            )
+            self.element_action.user_tab_on_element(locatorString, delay=delay, replacement=replacement)
         elif action == Action.COPY:
             self.element_action.user_copy_text_from_element(locatorString)
         elif action == Action.PASTE:
@@ -180,14 +162,10 @@ class BasePage:
             + " [Locator Not Found] "
         )
 
-    def assert_are_elements_present(
-        self, locators: List[Locator], retry_refresh_browser=False
-    ):
+    def assert_are_elements_present(self, locators: List[Locator], retry_refresh_browser=False):
         """Iterates over collection of locators to determine if present"""
         for locator in locators:
-            self.assert_is_element_present(
-                locator, retry_refresh_browser=retry_refresh_browser
-            )
+            self.assert_is_element_present(locator, retry_refresh_browser=retry_refresh_browser)
 
     def assert_is_element_present(
         self,
@@ -214,18 +192,12 @@ class BasePage:
             error,
         )
 
-    def assert_elements_not_present(
-        self, locators: List[Locator], retry_refresh_browser=False
-    ):
+    def assert_elements_not_present(self, locators: List[Locator], retry_refresh_browser=False):
         """Asserts if elements are not present"""
         for locator in locators:
-            self.assert_element_not_present(
-                locator, retry_refresh_browser=retry_refresh_browser
-            )
+            self.assert_element_not_present(locator, retry_refresh_browser=retry_refresh_browser)
 
-    def assert_element_not_present(
-        self, locator: Locator, error: str = None, retry_refresh_browser=False
-    ):
+    def assert_element_not_present(self, locator: Locator, error: str = None, retry_refresh_browser=False):
         """Asserts if an element is not present"""
         logging.debug(
             "Asserting element not present with locator %s",
@@ -241,14 +213,10 @@ class BasePage:
             error,
         )
 
-    def assert_elements_displayed(
-        self, locators: List[Locator], retry_refresh_browser=False, timeout=None
-    ):
+    def assert_elements_displayed(self, locators: List[Locator], retry_refresh_browser=False, timeout=None):
         """Iterates over collection of locators to determine if displayed"""
         for locator in locators:
-            self.assert_is_element_displayed(
-                locator, retry_refresh_browser=retry_refresh_browser, timeout=timeout
-            )
+            self.assert_is_element_displayed(locator, retry_refresh_browser=retry_refresh_browser, timeout=timeout)
 
     def assert_is_element_displayed(
         self,
@@ -281,9 +249,7 @@ class BasePage:
         timeout=1,
     ):
         """Asserts if an element is not visible/displayed"""
-        logging.debug(
-            "Asserting element is not displayed %s", locator.get_formatted_locator()
-        )
+        logging.debug("Asserting element is not displayed %s", locator.get_formatted_locator())
         if error is None:
             error = self.locator_error(locator=locator, replacement=replacement)
         Assert.assert_false(
@@ -327,29 +293,19 @@ class BasePage:
             timeout=timeout,
             replacement=replacement,
         )
-        if not self.element_action.is_element_clickable(
-            locator.get_formatted_locator(replacement=replacement)
-        ):
+        if not self.element_action.is_element_clickable(locator.get_formatted_locator(replacement=replacement)):
             self.element_action.refresh_browser()
-        self.click_on(
-            locator, delay=delay, click_using_java_script=True, replacement=replacement
-        )
+        self.click_on(locator, delay=delay, click_using_java_script=True, replacement=replacement)
 
-    def assert_element_present_and_click(
-        self, locator: Locator, retry_refresh_browser=False, delay=0.5, timeout=None
-    ):
+    def assert_element_present_and_click(self, locator: Locator, retry_refresh_browser=False, delay=0.5, timeout=None):
         """Checks, via Assert, if element is present then clicks"""
-        self.assert_is_element_present(
-            locator, retry_refresh_browser=retry_refresh_browser, timeout=timeout
-        )
+        self.assert_is_element_present(locator, retry_refresh_browser=retry_refresh_browser, timeout=timeout)
         self.click_on(locator, delay=delay)
 
     def assert_element_contains_text(self, locator: Locator, expected_text: str):
         """Asserts whether the element contains the passed in text"""
         self.assert_is_element_displayed(locator)
-        actual_text = self.element_action.get_text(
-            locator.get_formatted_locator()
-        ).lower()
+        actual_text = self.element_action.get_text(locator.get_formatted_locator()).lower()
         Assert.assert_contains(
             actual_text,
             expected_text.lower(),
@@ -359,9 +315,7 @@ class BasePage:
     def assert_element_not_contain_text(self, locator: Locator, expected_text: str):
         """Asserts whether an element does not contain text"""
         self.assert_is_element_displayed(locator)
-        actual_text = self.element_action.get_text(
-            locator.get_formatted_locator()
-        ).lower()
+        actual_text = self.element_action.get_text(locator.get_formatted_locator()).lower()
         Assert.assert_does_not_contain(
             actual_text,
             expected_text.lower(),
@@ -369,20 +323,14 @@ class BasePage:
         )
 
     def get_element_text(self, locator: Locator, replacement=None):
-        return self.element_action.get_text(
-            locator.get_formatted_locator(), replacement=replacement
-        )
+        return self.element_action.get_text(locator.get_formatted_locator(), replacement=replacement)
 
     def assert_element_present_get_text(self, locator: Locator, replacement=None):
         """Asserts if element is present and returns text"""
         self.assert_is_element_present(locator, replacement=replacement)
-        return self.element_action.get_text(
-            locator.get_formatted_locator(replacement=replacement)
-        )
+        return self.element_action.get_text(locator.get_formatted_locator(replacement=replacement))
 
-    def assert_element_text_equals(
-        self, locator: Locator, text: str, equality: bool = True
-    ):
+    def assert_element_text_equals(self, locator: Locator, text: str, equality: bool = True):
         """Asserts element is present and then asserts texts or do not match based on equality value passed"""
         actual_text = self.assert_element_present_get_text(locator).lower()
         logging.info(
@@ -396,17 +344,11 @@ class BasePage:
             actual_text,
             text,
         )
-        Assert.assert_equals(
-            actual_text == text.lower(), equality, self.locator_error(locator)
-        )
+        Assert.assert_equals(actual_text == text.lower(), equality, self.locator_error(locator))
 
-    def assert_element_text_is_present(
-        self, locator: Locator, text_to_check: str, timeout=None
-    ):
+    def assert_element_text_is_present(self, locator: Locator, text_to_check: str, timeout=None):
         """Asserts element has text present"""
-        is_text_present = self.element_action.is_text_present(
-            locator.get_formatted_locator(), text_to_check, timeout
-        )
+        is_text_present = self.element_action.is_text_present(locator.get_formatted_locator(), text_to_check, timeout)
         Assert.assert_true(
             is_text_present,
             f"Text {text_to_check} is not present in locator {locator.get_formatted_locator()}",
@@ -422,9 +364,7 @@ class BasePage:
         logging.info("Closing any other tabs")
         self.element_action.close_other_tabs()
 
-    def retry_until_element_displayed(
-        self, locator: Locator, timeout=0.5, max_count=2, replacement=None
-    ):
+    def retry_until_element_displayed(self, locator: Locator, timeout=0.5, max_count=2, replacement=None):
         """Retry until the element is displayed"""
         return self.element_action.retry_until_displayed(
             locator.get_formatted_locator(),
@@ -435,18 +375,14 @@ class BasePage:
 
     def type_using_loop(self, locator: Locator, text: str, delay=1.0):
         """Type text char by char in a loop to control typing speed"""
-        self.element_action.type_using_loop(
-            locator.get_formatted_locator(), text=text, delay=delay
-        )
+        self.element_action.type_using_loop(locator.get_formatted_locator(), text=text, delay=delay)
 
     def assert_contains_all_text(self, locator: Locator, texts: List[str]):
         """Asserts whether all the text passed in the list
         is contained within the locator content text"""
         if isinstance(texts, str):
             raise TypeError("texts param not a list")
-        body_text = self.element_action.get_text(
-            locator.get_formatted_locator()
-        ).lower()
+        body_text = self.element_action.get_text(locator.get_formatted_locator()).lower()
         for text in texts:
             Assert.assert_contains(
                 body_text,
@@ -506,9 +442,7 @@ class BasePage:
         """Count the number of open windows"""
         return self.element_action.window_count(delay=delay)
 
-    def switch_to_new_window(
-        self, count=0, expected_window_url=None, validate_url=False, delay=0.5
-    ):
+    def switch_to_new_window(self, count=0, expected_window_url=None, validate_url=False, delay=0.5):
         """Switch to new window"""
         return self.element_action.switch_to_new_window(
             count=count,
@@ -517,9 +451,7 @@ class BasePage:
             delay=delay,
         )
 
-    def until_element_displayed(
-        self, locator: Locator, iterator=30, wait=1, replacement=None
-    ):
+    def until_element_displayed(self, locator: Locator, iterator=30, wait=1, replacement=None):
         """Repeats the step to check if element is
         displayed while a page is rendering"""
         return self.element_action.until_element_displayed(
@@ -534,26 +466,18 @@ class BasePage:
 
     def get_element_count(self, locator: Locator, replacement=None):
         """Get number of elements"""
-        return self.element_action.get_element_count(
-            locator.get_formatted_locator(replacement=replacement)
-        )
+        return self.element_action.get_element_count(locator.get_formatted_locator(replacement=replacement))
 
     def drag_and_drop_with_offset_to_the_left(self, locator: Locator, xoffset):
         """user performs drag and drop with offset to the left"""
-        return self.element_action.drag_and_drop_with_offset_to_the_left(
-            locator.get_formatted_locator(), xoffset
-        )
+        return self.element_action.drag_and_drop_with_offset_to_the_left(locator.get_formatted_locator(), xoffset)
 
     def drag_and_drop_with_offset_to_the_right(self, locator: Locator, xoffset):
         """user performs drag and drop with offset to the right"""
-        return self.element_action.drag_and_drop_with_offset_to_the_right(
-            locator.get_formatted_locator(), xoffset
-        )
+        return self.element_action.drag_and_drop_with_offset_to_the_right(locator.get_formatted_locator(), xoffset)
 
     def is_text_present(self, locator: Locator, text: str, timeout=None):
-        return self.element_action.is_text_present(
-            locator=locator.get_formatted_locator(), text=text, timeout=timeout
-        )
+        return self.element_action.is_text_present(locator=locator.get_formatted_locator(), text=text, timeout=timeout)
 
     def upload(self, locator: Locator, text):
         """upload file"""

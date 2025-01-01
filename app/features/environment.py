@@ -26,10 +26,7 @@ def before_all(context):
 def before_scenario(context, scenario):
     """define before scenario"""
     if context.test_settings.env not in scenario.effective_tags:
-        if (
-            PRIMARY_DEV_ENV in scenario.effective_tags
-            and context.test_settings.env in SECONDARY_DEV_ENVS
-        ):
+        if PRIMARY_DEV_ENV in scenario.effective_tags and context.test_settings.env in SECONDARY_DEV_ENVS:
             logging.info("Mapping primary development env to secondary envs")
         else:
             scenario.skip(
@@ -97,9 +94,7 @@ def before_feature(context, feature):
     """runs before a feature"""
     for scenario in feature.scenarios:
         if "autoretry" in scenario.effective_tags:
-            patch_scenario_with_autoretry(
-                scenario, max_attempts=int(settings.autoretry_attempts)
-            )
+            patch_scenario_with_autoretry(scenario, max_attempts=int(settings.autoretry_attempts))
 
 
 def after_step(context, step):

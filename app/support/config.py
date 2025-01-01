@@ -13,9 +13,7 @@ class Settings:
     def __init__(self):
         settings_file = os.environ.get("SETTINGS_FILE_PATH")
         if not settings_file:
-            settings_file = os.path.join(
-                os.path.dirname(os.path.abspath(__file__)), "test_settings.json"
-            )
+            settings_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "test_settings.json")
 
         with open(settings_file, encoding="utf-8") as file:
             setting = json.load(file)
