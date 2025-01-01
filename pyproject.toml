@@ -1,6 +1,6 @@
 [project]
 name = "pybehave-selenium-test-framework"
-version = "1.0.3"
+version = "1.0.4"
 authors = [
   { name="Argo DevOps", email="info@argodevops.co.uk" },
 ]
