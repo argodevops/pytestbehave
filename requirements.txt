@@ -13,7 +13,7 @@ ddt==1.6.0
 elementpath==4.1.4
 Faker==19.1.0
 iniconfig==2.0.0
-Jinja2==3.1.4
+Jinja2==3.1.5
 packaging==23.1
 panda==0.3.1
 paramiko==3.4.0
