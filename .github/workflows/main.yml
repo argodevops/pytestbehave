@@ -34,5 +34,4 @@ jobs:
         ruff format
     - name: Run example test
       run: |
-        cd pybehave
-        behave features/example/login.feature
+        behave pybehave/features/example/login.feature
