@@ -8,12 +8,12 @@
 ![PyPI - Version](https://img.shields.io/pypi/v/pybehave-selenium-test-framework)
 
 ```
- ____          ____         _                                 ____         _               _       
-|  _ \  _   _ | __ )   ___ | |__    __ _ __   __  ___        / ___|   ___ | |  ___  _ __  (_) _   _  _ __ ___  
-| |_) || | | ||  _ \  / _ \| '_ \  / _` |\ \ / / / _ \ _____ \___ \  / _ \| | / _ \| '_ \ | || | | || '_ ` _ \ 
+ ____          ____         _                                 ____         _               _
+|  _ \  _   _ | __ )   ___ | |__    __ _ __   __  ___        / ___|   ___ | |  ___  _ __  (_) _   _  _ __ ___
+| |_) || | | ||  _ \  / _ \| '_ \  / _` |\ \ / / / _ \ _____ \___ \  / _ \| | / _ \| '_ \ | || | | || '_ ` _ \
 |  __/ | |_| || |_) ||  __/| | | || (_| | \ V / |  __/|_____| ___) ||  __/| ||  __/| | | || || |_| || | | | | |
 |_|     \__, ||____/  \___||_| |_| \__,_|  \_/   \___|       |____/  \___||_| \___||_| |_||_| \__,_||_| |_| |_|
-        |___/ 
+        |___/
 ```
 
 **PyBehave-Selenium-Test-Framework** is a powerful test automation framework designed to provide a comprehensive solution for testing user interfaces and APIs. It leverages the power of `Behave` framework, `Python` programming language and `Selenium` `WebDriver` to allow the creation robust and maintainable automated tests.
@@ -54,7 +54,7 @@ The design is split into two sections - **Test Suite** and **Framework Layer**.
 | **support/core** | The core `ElementAction` which performs all the lower level selenium functionality |
 | **support/locators** | Locator descriptors and types used for identifying web elements |
 | **support/builder** | The templating builders to create supporting test data |
-| **support/test_settings.json** | Default test settings, can be overridden and customised |
+| **support/test-settings.json** | Default test settings, can be overridden and customised |
 | **drivers** | The web drivers for supported browsers |
 | **reports** | The json files generated with Allure reports |
 | **screenshots** | The screenshots taken from failed tests |
